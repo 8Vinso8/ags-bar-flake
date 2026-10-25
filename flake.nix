@@ -26,12 +26,12 @@
       hyprland
       mpris
       wireplumber
-      tray
     ];
 
     extraPackages =
       astalPackages
       ++ [
+        pkgs.gdk-pixbuf
         pkgs.libadwaita
         pkgs.libsoup_3
       ];
