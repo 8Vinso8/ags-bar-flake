@@ -1,0 +1,226 @@
+// Catppuccin Mocha Colors (Waybar 1:1)
+$base: rgba(24, 24, 37, 0.85);
+$text: #cdd6f4;
+$subtext: #a6adc8;
+$mauve: #cba6f7;
+$surface: #313244;
+$red: #f38ba8;
+$blue: #89b4fa;
+$teal: #94e2d5;
+$yellow: #f9e2af;
+
+// Distinct mauve accent border
+$border-color: rgba(203, 166, 247, 0.45);
+
+* {
+  font-family: "JetBrainsMono Nerd Font", Noto, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  min-height: 0;
+  min-width: 0;
+}
+
+window.Bar {
+  background: transparent;
+  color: $text;
+
+  // Margin-top = 6, margin-left = 8, margin-right = 8 from Waybar config
+  > .bar-container {
+    padding: 6px 8px 0 8px;
+  }
+
+  // Base island styling (matches Waybar's 24px height and 0 10px padding)
+  .island {
+    background-color: $base;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 0 10px;
+    margin: 0 4px;
+    min-height: 24px;
+    color: $text;
+    box-shadow: none;
+    outline: none;
+
+    button {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      outline: none;
+      color: $text;
+      padding: 0 4px;
+      margin: 0;
+      min-height: 0;
+      border-radius: 6px;
+
+      &:hover {
+        background-color: $surface;
+      }
+    }
+  }
+
+  // Clock module (menubutton island)
+  menubutton.island {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 4px;
+    min-height: 0;
+
+    > button {
+      background-color: $base;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      padding: 0 10px;
+      min-height: 24px;
+      color: $text;
+      box-shadow: none;
+      outline: none;
+
+      &:hover {
+        background-color: $base;
+      }
+    }
+  }
+
+  // Workspaces island
+  .island-workspaces {
+    padding: 0 4px;
+    margin-right: 6px;
+
+    button.workspace-btn {
+      padding: 0 8px;
+      margin: 3px 2px;
+      background-color: transparent;
+      color: $text;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+
+      &.active {
+        background-color: $mauve;
+        color: #11111b;
+        font-weight: bold;
+      }
+
+      &.empty {
+        opacity: 0.4;
+      }
+
+      &:hover {
+        background-color: $surface;
+        color: $text;
+      }
+
+      &.active:hover {
+        background-color: $mauve;
+        color: #11111b;
+      }
+    }
+  }
+
+  // Specific island adjustments from Waybar
+  .island-window {
+    color: $subtext;
+    font-weight: normal;
+  }
+
+  .island-mpris {
+    margin-right: 8px;
+  }
+
+  .island-system {
+    padding: 0 4px;
+    margin-right: 8px;
+
+    button.idle-inhibitor {
+      padding: 0 6px;
+      color: $mauve;
+
+      &.activated {
+        color: $red;
+      }
+    }
+
+    .system-module {
+      padding: 0 6px;
+      color: $text;
+    }
+
+    button.language {
+      min-width: 16px;
+    }
+  }
+
+  .island-tray {
+    padding: 0 4px;
+
+    menubutton.tray-item {
+      padding: 0;
+      margin: 0 2px;
+
+      > button {
+        padding: 0 4px;
+        min-height: 24px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+
+        &:hover {
+          background-color: $surface;
+          border-radius: 6px;
+        }
+
+        image {
+          min-width: 16px;
+          min-height: 16px;
+        }
+      }
+    }
+  }
+}
+
+// Popover & Calendar (Catppuccin Mocha)
+popover.background {
+  background: transparent;
+
+  > contents {
+    background-color: $base;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 8px;
+    color: $text;
+  }
+}
+
+calendar {
+  background: transparent;
+  color: $text;
+  border: none;
+
+  header {
+    color: $mauve;
+  }
+
+  button {
+    color: $text;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $surface;
+    }
+  }
+
+  // Hover effect for standalone island buttons (e.g. Mpris)
+  button.island {
+    &:hover {
+      background-color: $surface;
+    }
+  }
+
+  &:selected {
+    background-color: $mauve;
+    color: #11111b;
+    border-radius: 6px;
+  }
+}
